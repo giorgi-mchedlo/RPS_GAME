@@ -14,19 +14,29 @@ function getComputerChoice(){
 
 
 
-function playRound(playerSelection, computerSelection){
-    let playerValidSelection = playerSelection.toLowerCase();
+function playRound(computerSelection){
+    let pls = prompt("please enter rock, paper or scissor").toLowerCase();
+
     let result = "";
-    if(playerValidSelection === computerSelection){
+    if(pls === computerSelection){
         result = "This round is Tie!";
-    }else if(playerValidSelection === "paper" && computerSelection === "rock"){
-        result = `player wins ${playerValidSelection} beats ${computerSelection}`
+    }else if(pls === "paper" && computerSelection === "rock"){
+        result =`player wins ${pls} beats ${computerSelection}`
+    }else if(pls === "rock" && computerSelection === "paper"){
+        result =`computer wins ${computerSelection} beats ${pls}`
+    }else if(pls === "rock" && computerSelection === "scissor"){
+        result =`player wins ${pls} beats ${computerSelection}`
+    }else if(pls === "scissor" && computerSelection === "rock"){
+        result =`computer wins ${computerSelection} beats ${pls}`
+    }else{
+        result =`player wins ${pls} beats ${computerSelection}`
     }
 
-    
+
+    return result;
 
 }
 
-const playerSelection = "rock";
+
 const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection))
+console.log(playRound(computerSelection))
